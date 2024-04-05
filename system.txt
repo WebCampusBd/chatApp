@@ -1,0 +1,13 @@
+//
+npm install > npm i npm@latest -g
+yarn install > npm i -g yarn 
+yarn update > yarn set version latest
+
+// add learn 
+1.jsonwebtoken verify
+2.RegExp
+
+//
+## debugging *
+
+
