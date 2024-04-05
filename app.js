@@ -5,6 +5,7 @@ const path = require("path");
 const http = require("http");
 const moment = require("moment");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 // internal imports
 const dbConnect = require("./config/database");
@@ -26,6 +27,9 @@ global.io = io;
 
 // set comment as app locals
 app.locals.moment = moment;
+
+// cors setup
+app.use(cors());
 
 // request parsers
 app.use(express.json());
