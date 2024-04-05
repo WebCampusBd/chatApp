@@ -4,7 +4,7 @@ const path = require("path");
 const { unlink } = require("fs");
 
 const getUsers = async (req, res, next) => {
-  if (req.user.role === "admin") {
+  if (req.user.id == "661003222f922eabafa11690") {
     try {
       const users = await People.find();
       res.render("users", { users });
