@@ -5,7 +5,6 @@ const path = require("path");
 const http = require("http");
 const moment = require("moment");
 const cookieParser = require("cookie-parser");
-const cors = require("cors");
 
 // internal imports
 const dbConnect = require("./config/database");
@@ -27,20 +26,6 @@ global.io = io;
 
 // set comment as app locals
 app.locals.moment = moment;
-
-// cors setup
-app.use(cors());
-
-// Middleware to enable CORS
-app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://chatapp-yq3m.onrender.com"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
 
 // request parsers
 app.use(express.json());
