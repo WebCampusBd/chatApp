@@ -4,11 +4,15 @@ const path = require("path");
 const { unlink } = require("fs");
 
 const getUsers = async (req, res, next) => {
-  try {
-    const users = await People.find();
-    res.render("users", { users });
-  } catch (error) {
-    next(error.message);
+  if (req.user.role === "admin") {
+    try {
+      const users = await People.find();
+      res.render("users", { users });
+    } catch (error) {
+      next(error.message);
+    }
+  } else {
+    res.redirect("/inbox");
   }
 };
 

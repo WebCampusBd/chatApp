@@ -15,15 +15,8 @@ const {
   addUserValidationHandler,
 } = require("../middlewares/users/userValidators");
 const { checkLogin } = require("../middlewares/common/checkLogin");
-const checkAdmin = require("../middlewares/common/checkAdmin");
 
-router.get(
-  "/",
-  decoreateHtmlResponse("Users"),
-  checkLogin,
-  checkAdmin,
-  getUsers
-);
+router.get("/", decoreateHtmlResponse("Users"), checkLogin, getUsers);
 router.post(
   "/",
   avatarUpload,
